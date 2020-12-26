@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import FileStorageServerApp from './component/FileStorageServerApp';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import ListFilesComponent from './component/ListFilesComponent';
+import AddFileComponent from './component/AddFileComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={FileStorageServerApp} />
+          <Route exact path="/list-files" component={ListFilesComponent} />
+          <Route exact path="/add-file" component={AddFileComponent} />
+        </Switch>
+      </Router>
+    )
+  }
 }
 
 export default App;
